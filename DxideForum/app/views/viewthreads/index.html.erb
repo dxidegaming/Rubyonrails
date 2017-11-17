@@ -19,7 +19,7 @@
   <div class="small-4 columns">
   </div>
 </div>
-<table>
+<center><table>
   <thead>
     <tr>
       <th>Subject</th>
@@ -34,10 +34,11 @@
         <td><%= viewthread.Subject %></td>
         <td><%= viewthread.Text %></td>
         <td><%= viewthread.CreatedBy %></td>
+        <td><%= link_to 'View', viewthread %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Thread', new_viewthread_path %>
+<%= link_to 'New Thread', new_viewthread_path %></center>
