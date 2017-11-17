@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @viewthread.Subject %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @viewthread.Text %>
+</p>
+
+<p>
+  <strong>Createdby:</strong>
+  <%= @viewthread.CreatedBy %>
+</p>
+
+<%= link_to 'Edit', edit_viewthread_path(@viewthread) %> |
+<%= link_to 'Back', viewthreads_path %>
