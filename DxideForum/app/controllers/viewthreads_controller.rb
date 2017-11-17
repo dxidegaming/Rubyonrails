@@ -1,6 +1,7 @@
 class ViewthreadsController < ApplicationController
   before_action :set_viewthread, only: [:show, :edit, :update, :destroy]
 
+http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :create]
   # GET /viewthreads
   # GET /viewthreads.json
   def index
@@ -71,4 +72,5 @@ class ViewthreadsController < ApplicationController
     def viewthread_params
       params.require(:viewthread).permit(:Subject, :Text, :CreatedBy)
     end
+
 end
