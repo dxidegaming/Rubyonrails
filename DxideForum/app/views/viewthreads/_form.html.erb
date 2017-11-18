@@ -17,13 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :Text %><br>
-    <%= f.text_field :Text %>
+    <%= f.text_area :Text %>
   </div>
-  <div class="field">
-    <%= f.label :CreatedBy %><br>
-    <%= f.text_field :CreatedBy %>
-  </div>
+  <div class="text">
+    <%= f.label "Created By:" %>
+    <%= current_user.email %><br><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Thread"%>
   </div>
 <% end %>

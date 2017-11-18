@@ -12,7 +12,7 @@
 
 <p>
   <strong>Createdby:</strong>
-  <%= @viewthread.CreatedBy %>
+  <%= current_user.email %>
 </p>
 
 <%= link_to 'Edit', edit_viewthread_path(@viewthread) %> |

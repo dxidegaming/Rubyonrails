@@ -5,6 +5,33 @@
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Home", welcome_index_path %></a></h1>
+      <li class="divider"></li>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <li><%= link_to "Browse Forum", viewthreads_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Contact Us" %></li>
+      <% if signed_in? %>
+        <li class="divider"></li>
+        <li><%= link_to "New Thread", new_viewthread_path %></li>
+      <% else %>
+        <li class="divider"></li>
+        <li><%= link_to "Sign in | Register", sign_in_path %></li>
+      <% end %>
+    </ul>
+  </section>
+</nav>
+  <% if signed_in? %>
+    <nav><ul class="right"><%= button_to 'Sign out', sign_out_path, method: :delete %></nav></ul>
+  <% else %>
+  <% end %>
   <head>
   	<meta charset="utf-8" />
 
@@ -23,9 +50,16 @@
 
   <body>
 
-    <%= yield %>
+    <section>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
 
-    
+    <%= yield %>
+  </section>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
