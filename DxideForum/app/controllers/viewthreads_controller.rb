@@ -1,7 +1,7 @@
 class ViewthreadsController < ApplicationController
   before_action :set_viewthread, only: [:show, :edit, :update, :destroy]
 
-http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :new, :show]
+http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :new, :show, :create]
   # GET /viewthreads
   # GET /viewthreads.json
 
@@ -28,7 +28,7 @@ http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :
   # POST /viewthreads.json
   def create
     @viewthread = Viewthread.new(viewthread_params)
-
+    @viewthread.CreatedBy = current_user.email
 
     respond_to do |format|
       if @viewthread.save
