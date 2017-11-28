@@ -1,7 +1,7 @@
 class ViewthreadsController < ApplicationController
   before_action :set_viewthread, only: [:show, :edit, :update, :destroy]
 
-http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :new]
+http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :new, :show]
   # GET /viewthreads
   # GET /viewthreads.json
 

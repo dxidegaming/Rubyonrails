@@ -29,6 +29,7 @@
   </section>
 </nav>
   <% if signed_in? %>
+
     <nav><ul class="right"><%= button_to 'Sign out', sign_out_path, method: :delete %></nav></ul>
   <% else %>
   <% end %>
@@ -49,7 +50,10 @@
   </head>
 
   <body>
-
+    <% if signed_in? %>
+    <div align="right">Logged in as: <%= current_user.email %></div>
+    <% else %>
+    <% end %>
     <section>
     <div id="flash">
       <% flash.each do |key, value| %>
