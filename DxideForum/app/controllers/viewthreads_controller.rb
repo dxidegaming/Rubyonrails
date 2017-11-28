@@ -4,6 +4,7 @@ class ViewthreadsController < ApplicationController
 http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :create]
   # GET /viewthreads
   # GET /viewthreads.json
+
   def index
     @viewthreads = Viewthread.all
   end
@@ -55,11 +56,10 @@ http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :
   # DELETE /viewthreads/1
   # DELETE /viewthreads/1.json
   def destroy
-    @viewthread.destroy
-    respond_to do |format|
-      format.html { redirect_to viewthreads_url }
-      format.json { head :no_content }
-    end
+    @viewthreads = Viewthread.find(params[:id])
+    @viewthreads.destroy
+
+    redirect_to viewthread_path
   end
 
   private

@@ -1,9 +1,10 @@
 DxideForum::Application.routes.draw do
   resources :viewthreads
+  resources :dxidepanels
   get 'viewthread' => 'viewthread#index'
   get "welcome/index"
-  get 'welcome/adminpanel' => 'welcome#adminpanel'
   root 'welcome#index'
+  get 'dxidepanel' => 'dxidepanel#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

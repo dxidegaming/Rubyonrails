@@ -1,17 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
+  <strong>
   <%= @viewthread.Subject %>
+  </strong>
 </h1>
 
-<body>
+<h2>
+  <strong>
   <%= @viewthread.Text %>
-</body>
-<br> <br> <br>
+  </strong>
+</h2>
 
 <p>
-  Createdby:
+  <strong>Createdby:</strong>
   <%= @viewthread.CreatedBy %>
 </p>
 
-<%= link_to 'Back', viewthreads_path %>
+<%= link_to 'Back', dxidepanels_path %>

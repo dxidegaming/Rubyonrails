@@ -11,4 +11,9 @@
  *= require_self
  *= require_tree .
  */
-$font-family: "Comic sans ms"
+#clearance{
+  width: 200px;
+}
+#edit_viewthread{
+  width: 250px;
+}

@@ -7,7 +7,8 @@
   <thead>
     <tr>
       <th>Subject</th>
-      <th>Createdby</th>
+      <th>Created by</th>
+      <th>Created / Last Edited</th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
       <tr>
         <td><%= viewthread.Subject %></td>
         <td><%= viewthread.CreatedBy %></td>
+        <td><%= viewthread.updated_at %></td>
         <td><%= link_to 'View', viewthread %></td>
       </tr>
     <% end %>
