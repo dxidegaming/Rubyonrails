@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,32 +12,30 @@
 
 ActiveRecord::Schema.define(version: 20171124192255) do
 
-  create_table "comments", force: true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "viewthread_id"
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "viewthread_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["viewthread_id"], name: "index_comments_on_viewthread_id"
   end
 
-  add_index "comments", ["viewthread_id"], name: "index_comments_on_viewthread_id"
-
-  create_table "users", force: true do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", limit: 128, null: false
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
-  create_table "viewthreads", force: true do |t|
-    t.string   "Subject"
-    t.string   "Text"
-    t.string   "CreatedBy"
+  create_table "viewthreads", force: :cascade do |t|
+    t.string "Subject"
+    t.string "Text"
+    t.string "CreatedBy"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

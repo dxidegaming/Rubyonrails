@@ -1,4 +1,4 @@
-class CreateViewthreads < ActiveRecord::Migration
+class CreateViewthreads < ActiveRecord::Migration[4.2]
   def change
     create_table :viewthreads do |t|
       t.string :Subject

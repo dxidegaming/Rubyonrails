@@ -15,10 +15,9 @@
   <tbody>
     <% @viewthreads.each do |viewthread| %>
       <tr>
-        <td><%= viewthread.Subject %></td>
+        <td><%= link_to viewthread.Subject, viewthread %></td>
         <td><%= viewthread.CreatedBy %></td>
         <td><%= viewthread.updated_at %></td>
-        <td><%= link_to 'View', viewthread %></td>
       </tr>
     <% end %>
   </tbody>

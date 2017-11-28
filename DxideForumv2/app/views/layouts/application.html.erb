@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Home", forums_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <li><%= link_to "Browse Forum", forums_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "About Us" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Contact Us" %></li>
+      <li class="divider"></li>
+      <% if signed_in? %>
+      <li><%= link_to "New Thread", new_forum_path %></li>
+      <% else %>
+      <li><%= link_to "Sign in | Register", sign_in_path %></li>
+      <% end %>
+    </ul>
+  </section>
+</nav>
+<% if signed_in? %>
+    <nav><ul class="right"><%= button_to 'Sign out', sign_out_path, method: :delete %></nav></ul>
+  <% else %>
+  <% end %>
+<meta charset="utf-8" />
+
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <% if signed_in? %>
+    <div align="right">Logged in as: <%= current_user.email %></div>
+    <% else %>
+    <% end %>
+    <section>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </section>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+  </html>

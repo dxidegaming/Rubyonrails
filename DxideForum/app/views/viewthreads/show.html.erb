@@ -1,17 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @viewthread.Subject %>
-</h1>
+<p>
+  <strong><font size ="6"><%= @viewthread.Subject %></font></strong><br>
+<strong><font size ="2">Author:</strong>
+<%= @viewthread.CreatedBy %></font> </p>
 
 <body>
   <%= @viewthread.Text %>
 </body>
 <br> <br> <br>
-
-<p>
-  Createdby:
-  <%= @viewthread.CreatedBy %>
-</p>
-
+<% if signed_in? %>
+<% if @viewthread.CreatedBy == current_user.email %>
+<%= link_to 'Edit', edit_viewthread_path %> |
 <%= link_to 'Back', viewthreads_path %>
+<% else %>
+<%= link_to 'Back', viewthreads_path %>
+<% end %>
+<% else %>
+<%= link_to 'Back', viewthreads_path %>
+<% end %>
