@@ -14,6 +14,9 @@ http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :
   def show
   end
 
+  def userprofile
+  end
+
   # GET /viewthreads/new
   def new
     @viewthread = Viewthread.new

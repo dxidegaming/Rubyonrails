@@ -21,6 +21,9 @@
       <% if signed_in? %>
         <li class="divider"></li>
         <li><%= link_to "New Thread", new_viewthread_path %></li>
+        <li class="divider"></li>
+        <li><font color=white><%= link_to current_user.email %></font></li>
+        <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
       <% else %>
         <li class="divider"></li>
         <li><%= link_to "Sign in | Register", sign_in_path %></li>
@@ -28,11 +31,6 @@
     </ul>
   </section>
 </nav>
-  <% if signed_in? %>
-
-    <nav><ul class="right"><%= button_to 'Sign out', sign_out_path, method: :delete %></nav></ul>
-  <% else %>
-  <% end %>
   <head>
   	<meta charset="utf-8" />
 
@@ -50,10 +48,6 @@
   </head>
 
   <body>
-    <% if signed_in? %>
-    <div align="right">Logged in as: <%= current_user.email %></div>
-    <% else %>
-    <% end %>
     <section>
     <div id="flash">
       <% flash.each do |key, value| %>

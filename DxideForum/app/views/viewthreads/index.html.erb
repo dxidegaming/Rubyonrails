@@ -4,14 +4,37 @@
   </div>
 </div>
 <center><table>
+  <% if signed_in? %>
+  <% if current_user.email == "admin@yahoo.com" %>
   <thead>
     <tr>
       <th>Subject</th>
+      <th>Content</th>
       <th>Created by</th>
       <th>Created / Last Edited</th>
     </tr>
   </thead>
-
+  <tbody>
+    <% @viewthreads.each do |viewthread| %>
+  <tr>
+  <td><%= viewthread.Subject %></td>
+      <td><%= viewthread.Text %></td>
+      <td><%= viewthread.CreatedBy %></td>
+      <td><%= viewthread.updated_at %></td>
+      <td><%= link_to 'Show', viewthread %></td>
+      <td><%= link_to 'Edit', edit_viewthread_path(viewthread) %></td>
+      <td><%= link_to 'Destroy', viewthread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+ <% else %>
+ <thead>
+   <tr>
+     <th>Subject</th>
+     <th>Created by</th>
+     <th>Created / Last Edited</th>
+   </tr>
+ </thead>
   <tbody>
     <% @viewthreads.each do |viewthread| %>
       <tr>
@@ -21,6 +44,18 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>
+  <% else %>
+  <tbody>
+    <% @viewthreads.each do |viewthread| %>
+      <tr>
+        <td><%= link_to viewthread.Subject, viewthread %></td>
+        <td><%= viewthread.CreatedBy %></td>
+        <td><%= viewthread.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
 </table>
 
 <br>
