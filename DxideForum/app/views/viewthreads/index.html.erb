@@ -3,7 +3,7 @@
   <div class="small-4 columns">
   </div>
 </div>
-<center><table>
+<table>
   <% if signed_in? %>
   <% if current_user.email == "admin@yahoo.com" %>
   <thead>
@@ -28,35 +28,23 @@
   <% end %>
   </tbody>
  <% else %>
- <thead>
-   <tr>
-     <th>Subject</th>
-     <th>Created by</th>
-     <th>Created / Last Edited</th>
-   </tr>
- </thead>
-  <tbody>
+  <div align="justify">
     <% @viewthreads.each do |viewthread| %>
-      <tr>
-        <td><%= link_to viewthread.Subject, viewthread %></td>
-        <td><%= viewthread.CreatedBy %></td>
-        <td><%= viewthread.updated_at %></td>
-      </tr>
+      <br><font size="8"><u><%= link_to viewthread.Subject, viewthread %></font></u><br>
+      <font size="1"><%= viewthread.updated_at %> &nbsp&nbsp | &nbsp &nbsp By:
+      <i><%= viewthread.CreatedBy %></font></i><br><br><br><br>
     <% end %>
-  </tbody>
+  </div>
   <% end %>
   <% else %>
   <tbody>
     <% @viewthreads.each do |viewthread| %>
-      <tr>
-        <td><%= link_to viewthread.Subject, viewthread %></td>
-        <td><%= viewthread.CreatedBy %></td>
-        <td><%= viewthread.updated_at %></td>
-      </tr>
+      <br><font size="8"><u><%= link_to viewthread.Subject, viewthread %></font></u><br>
+      <font size="1"><%= viewthread.updated_at %> &nbsp&nbsp | &nbsp &nbsp
+      <%= viewthread.CreatedBy %></font><br><br><br><br>
     <% end %>
   </tbody>
   <% end %>
 </table>
 
 <br>
-</center>

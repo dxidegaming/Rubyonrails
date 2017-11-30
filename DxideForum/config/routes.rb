@@ -3,7 +3,7 @@ DxideForum::Application.routes.draw do
   get 'viewthread' => 'viewthread#index'
   get "welcome/index"
   root 'welcome#index'
-  get 'viewthread/userprfile' => 'viewthread#userprofile'
+  get 'viewthread/userprofile' => 'viewthread#userprofile'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
