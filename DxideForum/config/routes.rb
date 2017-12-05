@@ -1,5 +1,7 @@
 DxideForum::Application.routes.draw do
-  resources :viewthreads
+  resources :viewthreads do
+    resources :comments
+  end
   get 'viewthread' => 'viewthread#index'
   get "welcome/index"
   root 'welcome#index'
