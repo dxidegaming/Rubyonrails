@@ -1,0 +1,11 @@
+<p>
+  <%= comment.body %></p>
+  <p><font size ="1">
+  By:
+  <i><%= comment.commenter %></i></font>
+</p>
+<p>
+<%= link_to 'Destroy Comment', [comment.viewthread, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

@@ -10,20 +10,11 @@
 </body>
 <br> <br> <br>
 
+<h2>Comments</h2>
+<%= render @viewthread.comments %>
+<br> <br>
 <h2>Add a comment:</h2>
-<%= form_with(model: [ @viewthread, @viewthread.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'comments/form' %>
 
 <% if signed_in? %>
 <% if @viewthread.CreatedBy == current_user.email %>
