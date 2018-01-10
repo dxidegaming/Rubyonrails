@@ -1,3 +1,19 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.banner{
+  background-image: url("dotabanner.png");
+  height: 635px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 450px;
+  .creator{
+    line-height: 0px;
+  }
+}
+
+div.below{
+  .small-8{
+    color: white;
+  }
+}

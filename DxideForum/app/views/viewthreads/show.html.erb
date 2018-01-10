@@ -19,6 +19,7 @@
 <% if signed_in? %>
 <% if @viewthread.CreatedBy == current_user.email %>
 <%= link_to 'Edit', edit_viewthread_path %> |
+<%= link_to 'DELETE', viewthread_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', viewthreads_path %>
 <% else %>
 <%= link_to 'Back', viewthreads_path %>

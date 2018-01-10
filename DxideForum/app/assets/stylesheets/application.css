@@ -17,3 +17,7 @@
 #edit_viewthread{
   width: 250px;
 }
+
+nav.top-bar{
+  background-image: url("navbar.png");
+}
